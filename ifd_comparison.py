@@ -61,7 +61,7 @@ selected_names = st.sidebar.multiselect("Select catchment(s)", available_names, 
 
 # Filter Data
 selected_data = percentage_changes[selected_layer]
-filtered_data = selected_data.loc[selected_data['aep'].isin(selected_aeps) & selected_data['duration'].isin(selected_durations)]
+filtered_data = selected_data.loc[selected_data['name'].isin(selected_names) & selected_data['aep'].isin(selected_aeps) & selected_data['duration'].isin(selected_durations)]
 filtered_data = filtered_data.pivot(columns=['aep', 'duration'], index='name', values=['value'])
 filtered_data.columns = [' '.join(col[1:]).strip() for col in filtered_data.columns.values]
 # filtered_data.style.background_gradient(axis=None)
